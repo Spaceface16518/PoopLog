@@ -4,7 +4,7 @@ defmodule PoopLog.Repo.Migrations.CreatePoops do
   def change do
     create table(:poops) do
       add :conditions, references(:conditions, on_delete: :nothing)
-      add :suspects, references(:food, on_delete: :nothing)
+      add :suspects, references(:meals, on_delete: :nothing)
 
       timestamps()
     end
