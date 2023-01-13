@@ -1,11 +1,12 @@
 defmodule PoopLog.Logs.Poop do
+  alias PoopLog.Logs.Food
+  alias PoopLog.Condition
   use Ecto.Schema
   import Ecto.Changeset
 
   schema "poops" do
-
-    field :conditions, :id
-    field :suspects, :id
+    many_to_many :conditions, Condition, join_through: "poop_conditions"
+    many_to_many :suspects, Food, join_through: "poop_suspects"
 
     timestamps()
   end
