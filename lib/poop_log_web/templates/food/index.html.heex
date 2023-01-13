@@ -1,0 +1,28 @@
+<h1>Listing Meals</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Notes</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for food <- @meals do %>
+    <tr>
+      <td><%= food.description %></td>
+      <td><%= food.notes %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.food_path(@conn, :show, food) %></span>
+        <span><%= link "Edit", to: Routes.food_path(@conn, :edit, food) %></span>
+        <span><%= link "Delete", to: Routes.food_path(@conn, :delete, food), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Food", to: Routes.food_path(@conn, :new) %></span>
