@@ -1,4 +1,4 @@
 defmodule PoopLogWeb.FoodView do
   use PoopLogWeb, :view
-  alias PoopLog.{Attributes, Logs}
+  alias PoopLog.Attributes
 end

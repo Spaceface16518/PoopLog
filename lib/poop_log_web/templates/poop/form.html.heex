@@ -5,6 +5,14 @@
     </div>
   <% end %>
 
+  <%= label f, :conditions %>
+  <%= multiple_select f, :conditions, Enum.map(Attributes.list_condition, &({&1.name, &1.id})) %>
+  <%= error_tag f, :conditions %>
+
+  <%= label f, :suspects %>
+  <%= multiple_select f, :suspects, Enum.map(Logs.recent_meals(10), &({&1.description, &1.id})) %>
+  <%= error_tag f, :suspects %>
+
   <div>
     <%= submit "Save" %>
   </div>

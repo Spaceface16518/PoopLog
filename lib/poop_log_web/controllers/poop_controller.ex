@@ -10,7 +10,7 @@ defmodule PoopLogWeb.PoopController do
   end
 
   def new(conn, _params) do
-    changeset = Logs.change_poop(%Poop{})
+    changeset = Logs.change_poop(%Poop{conditions: [], suspects: []})
     render(conn, "new.html", changeset: changeset)
   end
 

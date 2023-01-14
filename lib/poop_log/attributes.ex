@@ -18,7 +18,7 @@ defmodule PoopLog.Attributes do
 
   """
   def list_condition do
-    raise "TODO"
+    Repo.all(Condition)
   end
 
   @doc """

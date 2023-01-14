@@ -21,6 +21,14 @@ defmodule PoopLog.Logs do
     Repo.all(Food)
   end
 
+  def recent_meals(limit) do
+    Repo.all(
+      from Food,
+        order_by: [asc: :inserted_at],
+        limit: ^limit
+    )
+  end
+
   @doc """
   Gets a single food.
 
