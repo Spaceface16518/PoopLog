@@ -13,6 +13,10 @@
   <%= text_input f, :notes %>
   <%= error_tag f, :notes %>
 
+  <%= label f, :irritants %>
+  <%= multiple_select f, :irritants, Enum.map(Attributes.list_irritant, &({&1.name, &1.id})) %>
+  <%= error_tag f, :irritants %>
+
   <div>
     <%= submit "Save" %>
   </div>

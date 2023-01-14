@@ -10,7 +10,7 @@ defmodule PoopLogWeb.FoodController do
   end
 
   def new(conn, _params) do
-    changeset = Logs.change_food(%Food{})
+    changeset = Logs.change_food(%Food{irritants: []})
     render(conn, "new.html", changeset: changeset)
   end
 
