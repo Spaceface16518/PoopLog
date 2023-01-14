@@ -1,4 +1,4 @@
-defmodule PoopLog.Irritant do
+defmodule PoopLog.Attributes.Irritant do
   use Ecto.Schema
   import Ecto.Changeset
 

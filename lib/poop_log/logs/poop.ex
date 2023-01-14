@@ -1,6 +1,6 @@
 defmodule PoopLog.Logs.Poop do
   alias PoopLog.Logs.Food
-  alias PoopLog.Condition
+  alias PoopLog.Attributes.Condition
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -15,6 +15,8 @@ defmodule PoopLog.Logs.Poop do
   def changeset(poop, attrs) do
     poop
     |> cast(attrs, [])
-    |> validate_required([])
+    |> cast_assoc(:conditions, with: &Condition.changeset/2)
+    |> cast_assoc(:suspects, with: &Food.changeset/2)
+    |> validate_required([:conditions, :suspects])
   end
 end

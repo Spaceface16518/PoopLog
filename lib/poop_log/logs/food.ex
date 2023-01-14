@@ -1,5 +1,5 @@
 defmodule PoopLog.Logs.Food do
-  alias PoopLog.Irritant
+  alias PoopLog.Attributes.Irritant
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -15,6 +15,7 @@ defmodule PoopLog.Logs.Food do
   def changeset(food, attrs) do
     food
     |> cast(attrs, [:description, :notes])
-    |> validate_required([:description, :notes])
+    |> cast_assoc(:irritants, with: &Irritant.changeset/2)
+    |> validate_required([:description, :notes, :irritants])
   end
 end

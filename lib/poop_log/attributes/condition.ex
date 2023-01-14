@@ -1,4 +1,4 @@
-defmodule PoopLog.Condition do
+defmodule PoopLog.Attributes.Condition do
   use Ecto.Schema
   import Ecto.Changeset
 
